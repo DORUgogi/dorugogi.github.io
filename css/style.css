@@ -29,7 +29,7 @@ h1{display: inline-block;width:100%;font-size:4rem;text-align: center;margin: 0 
 .markBox.icoset > ul > li{width: 10%;height: 7rem;}
 .markBox.icoset > ul > li > div{position: relative;}
 .markBox.icoset > ul > li > div > a{display:inline-block;position:absolute;width:1.5rem;height:1.5rem;font-size: 0;top:50%;left:50%;transform: translate(-50%,-50%);}
-.markBox.icoset > ul > li > div > div{display:inline-block;position:absolute;width:4rem;height:1.5rem;cursor:pointer;text-align: center;border:1px solid #000;border-radius: .25rem;top:50%;left:50%;transform: translate(-50%,-50%);}
+.markBox.icoset > ul > li > div > div{display:inline-block;position:absolute;width:5rem;height:2rem;line-height:2rem;color:#fff;font-size:1.125rem;font-weight:500;cursor:pointer;text-align: center;background: #397afa;border:1px solid #397afa;box-sizing:border-box;border-radius: .35rem;box-shadow:.25rem .25rem .375rem rgba(0,0,0,.3);top:50%;left:50%;transform: translate(-50%,-50%);transition: .3s all;}
 
 
 .icoset a > span{display:inline-block;position:absolute;background: #397afa;transition: .3s all;}
@@ -86,4 +86,23 @@ h1{display: inline-block;width:100%;font-size:4rem;text-align: center;margin: 0 
 .icoset .ico04:hover span:first-child{width:1.85rem;height: .25rem;background:#397afa;border:0;border-radius:0;transform: rotate(-42deg);transform-origin:right center;top:0;right:0;}
 .icoset .ico04:hover span:nth-child(2){width:1.85rem;border-radius:0;transform: rotate(42deg);bottom:0;}
 
-.icoset .ico05{}
+.icoset .ico05{overflow: hidden;}
+.icoset .ico05 .cube3d{position:absolute;width: 100%;height: 100%;top:50%;left:50%;transform-style:preserve-3d;transform: translate(-50%,-50%);}
+.icoset .ico05 .cube3d span{display:inline-block;position: absolute;width: 100%;height: 100%;line-height:1.875rem;text-align: center;background: #397afa;left:0;border-radius: .35rem;transition: .3s all;}
+.icoset .ico05 .cube3d span:first-child{transform: rotateX(0deg) translateZ(.5rem);}
+.icoset .ico05 .cube3d span:nth-child(2){transform: rotateX(-120deg) translateZ(.5rem);}
+.icoset .ico05 .cube3d span:nth-child(3){transform: rotateX(120deg) translateZ(.5rem);}
+.icoset .ico05:hover{background: #fff;}
+.icoset .ico05:hover .cube3d{animation: cubeR 1s;}
+.icoset .ico05:hover .cube3d span{color:#397afa;background: #fff;}
+
+@keyframes cubeR{
+    0%{transform: translate(-50%,-50%) rotateX(0);}
+    100%{transform: translate(-50%,-50%) rotateX(-240deg);}
+}
+
+.markBox.icoset > ul > li > div > .ico06{position: absolute;width: 100%;height: 100%;background: transparent;border:0;box-shadow: none;}
+.btndeep{position:absolute;width: 5rem;height: 2.5rem;overflow:hidden;border-radius:1rem;transform: translate(-50%,-50%);top:50%;left:50%;}
+.icoset .btndeep .btn{position:absolute;width:5rem;height:2rem;overflow: hidden;background:#397afa;border-radius: 1rem;box-shadow: 0 1px #adc8ff,0 2px #adc8ff,0 3px #adc8ff,0 4px #adc8ff,0 5px #adc8ff,0 6px #adc8ff,0 7px #adc8ff,0 8px #adc8ff;transform: translate3d(-50%, 0, 1.5rem);top:0;left:50%;transition: .3s all;}
+.ico06:hover .btn{background: #fda604;box-shadow: 0 1px #ffca68,0 2px #ffca68,0 3px #ffca68,0 4px #ffca68,0 5px #ffca68,0 6px #ffca68,0 7px #ffca68,0 8px #ffca68;top: .25rem;}
+.ico06:hover .btn.clck{background:#ff7b00;box-shadow: 0 1px #ff9a3b,0 2px #ff7b00,0 3px #ff7b00,0 4px #ff7b00,0 5px #ff7b00,0 6px #ff7b00,0 7px #ff7b00,0 8px #ff7b00;top: .5rem;}
