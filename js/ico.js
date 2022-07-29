@@ -9,7 +9,22 @@ $(window).on('load',function(){
     }).on('mouseup',function(){
         $(this).removeClass('clck');
     });
-    $('.ico08').on('click',function(){
+    $('.ico08').bind('click',function(){
         $(this).addClass('clck');
-    })
+        setTimeout(function(){
+            $(this).removeClass('clck');
+        }.bind($(this)),700)
+    });
+    $('.ico09').bind('click',function(){
+        $(this).addClass('clck');
+        setTimeout(function(){
+            $(this).removeClass('clck');
+        }.bind($(this)),1700)
+    });
+    $('.ico10').bind('click',function(){
+        $(this).addClass('clck');
+        setTimeout(function(){
+            $(this).removeClass('clck');
+        }.bind($(this)),1900)
+    });
 });
