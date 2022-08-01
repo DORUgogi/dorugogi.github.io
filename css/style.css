@@ -156,24 +156,29 @@ h1{display: inline-block;width:100%;font-size:4rem;text-align: center;margin: 0 
     100%{top: 0%}
 }
 
-.ico10{width:4rem !important;height:4rem !important;overflow:hidden;background: #397afa;border-radius: 100%;}
+.ico10{width:4rem !important;height:4rem !important;overflow:hidden;background: #397afa;border-radius: 100%;transition: .5s all;}
 .ico10 .btndeep{position:relative;width:100%;height:100%;}
 .ico10 .btndeep .btn{position: absolute;width: 0;height: 0;top: 50%;left: 50%;transform: translate(-50%,-50%);}
-.ico10 .btndeep .btn span{position:absolute;width:.25rem;height: 2rem;top: -2rem;left: -.125rem;transform-origin: center bottom;transition: .3s all;}
+.ico10 .btndeep .btn span{position:absolute;width:.25rem;height: 2rem;overflow:hidden;top: -2rem;left: -.125rem;transform-origin: center bottom;transition: .3s all;}
 .ico10 .btndeep .btn span:first-child{}
 .ico10 .btndeep .btn span:nth-child(2){transform:  rotateZ(90deg);}
 .ico10 .btndeep .btn span:nth-child(3){transform:  rotateZ(180deg);}
 .ico10 .btndeep .btn span:nth-child(4){transform:  rotateZ(270deg);}
 
-.ico10 .btndeep .btn span i{display:inline-block;position:absolute;width: 100%;height: 100%;transform-style: preserve-3d;transition: .8s;}
-.ico10 .btndeep .btn span i::after{content:"";width: 100%;height: 1rem;background:#fff;left:0;bottom:0;transition: .3s all;transform: translateZ(5rem);}
-/* .ico10 .btndeep .btn span i::before{content:"";width: 100%;height: 3rem;background:#397afa;left:0;bottom:0;transition: .3s all;transform: translateZ(-1.125rem);} */
+
+.ico10 .btndeep .btn span i{display:inline-block;position:absolute;width: 100%;height: 100%;}
+.ico10 .btndeep .btn span i::after,
+.ico10 .btndeep .btn span i::before{content:"";width: 100%;left:0;bottom: 0;background:#fff;transition: .3s all;}
+.ico10 .btndeep .btn span i::after{height: 1rem;transform: ;}
+.ico10 .btndeep .btn span i::before{height: 2rem;transform: translateY(calc(5rem));}
 
 .ico10:hover .btndeep .btn span i::after{height: .75rem;}
+.ico10:hover .btndeep .btn span i::before{height: .75rem;}
 
-.ico10.clck .btndeep .btn span i{animation: rotate3 2s linear;}
+.ico10.clck{width: 3rem !important;height: 3rem !important;}
+.ico10.clck .btndeep .btn span i{animation: plus .5s linear;}
 
-@keyframes rotate3{
-    0%{transform: rotateX(0deg);}
-    100%{transform: rotateX(360deg);}
+@keyframes plus{
+    0%{transform: translateY(0rem);}
+    100%{transform: translateY(-4rem);}
 }

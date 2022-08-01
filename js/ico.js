@@ -25,6 +25,6 @@ $(window).on('load',function(){
         $(this).addClass('clck');
         setTimeout(function(){
             $(this).removeClass('clck');
-        }.bind($(this)),1900)
+        }.bind($(this)),600)
     });
 });
