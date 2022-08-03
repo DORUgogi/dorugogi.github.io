@@ -169,8 +169,8 @@ h1{display: inline-block;width:100%;font-size:4rem;text-align: center;margin: 0 
 .ico10 .btndeep .btn span i{display:inline-block;position:absolute;width: 100%;height: 100%;}
 .ico10 .btndeep .btn span i::after,
 .ico10 .btndeep .btn span i::before{content:"";width: 100%;left:0;bottom: 0;background:#fff;transition: .3s all;}
-.ico10 .btndeep .btn span i::after{height: 1rem;transform: ;}
-.ico10 .btndeep .btn span i::before{height: 2rem;transform: translateY(calc(5rem));}
+.ico10 .btndeep .btn span i::after{height: 1rem;}
+.ico10 .btndeep .btn span i::before{height: 1rem;transform: translateY(5rem);}
 
 .ico10:hover .btndeep .btn span i::after{height: .75rem;}
 .ico10:hover .btndeep .btn span i::before{height: .75rem;}
@@ -180,5 +180,5 @@ h1{display: inline-block;width:100%;font-size:4rem;text-align: center;margin: 0 
 
 @keyframes plus{
     0%{transform: translateY(0rem);}
-    100%{transform: translateY(-4rem);}
+    100%{transform: translateY(-5rem);}
 }
