@@ -147,7 +147,7 @@ h1{display: inline-block;width:100%;font-size:4rem;text-align: center;margin: 0 
     100%{transform: rotateY(360deg);}
 }
 
-.ico09.clck:hover .btndeep .btn{animation: shottop 1.6s ease-in;}
+.ico09.clck .btndeep .btn{animation: shottop 1.6s ease-in;}
 
 @keyframes shottop{
     0%{top:10%;}
