@@ -150,10 +150,10 @@ h1{display: inline-block;width:100%;font-size:4rem;text-align: center;margin: 0 
 .ico09.clck:hover .btndeep .btn{animation: shottop 1.6s ease-in;}
 
 @keyframes shottop{
-    0%{top:10%}
-    25%{top:25%}
-    50%{top: -250%}
-    100%{top: 0%}
+    0%{top:10%;}
+    25%{top:25%;}
+    50%{top: -250%;}
+    100%{top: 0%;}
 }
 
 .ico10{width:4rem !important;height:4rem !important;overflow:hidden;background: #397afa;border-radius: 100%;transition: .5s all;}
