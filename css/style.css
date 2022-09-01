@@ -156,6 +156,7 @@ h1{display: inline-block;width:100%;font-size:4rem;text-align: center;margin: 0 
     100%{top: 0%;}
 }
 
+
 .ico10{width:4rem !important;height:4rem !important;overflow:hidden;background: #397afa;border-radius: 100%;transition: .5s all;}
 .ico10 .btndeep{position:relative;width:100%;height:100%;}
 .ico10 .btndeep .btn{position: absolute;width: 0;height: 0;top: 50%;left: 50%;transform: translate(-50%,-50%);}
@@ -182,3 +183,5 @@ h1{display: inline-block;width:100%;font-size:4rem;text-align: center;margin: 0 
     0%{transform: translateY(0rem);}
     100%{transform: translateY(-5rem);}
 }
+
+.wrap canvas{position: absolute;left: 0;}
