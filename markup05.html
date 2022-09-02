@@ -16,7 +16,7 @@
 
 </head>
 
-<body>
+<body class="threeD">
 	<div class="container">
 		<div class="wrap">
 			<h1>Interactive Library > Three.js</h1>
@@ -49,7 +49,7 @@
 				}
 				animate();
 			</script> -->
-<!-- 
+			<!-- 
 			<script>
 				const scene = new THREE.Scene();
 				const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, .1, 1000);
@@ -92,45 +92,97 @@
 
 			</script> -->
 
-			<script>
 
+			<script type="module">
+				import * as THREE from "../js/modules/three.module.js"
+				import { FontLoader } from "../js/modules/FontLoader.js";
+				import { TextGeometry } from "../js/modules/TextGeometry.js";
+
+				let glow = 0.5;
+
+				//SCENE
 				const scene = new THREE.Scene();
+
+				//CAMERA
 				const camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, .1 ,1000);
 				
 				camera.position.set(0, 0, 120);
 				camera.lookAt(0,0,0);
 
-				const renderer = new THREE.WebGLRenderer();
+				//RENDERER
+				const renderer = new THREE.WebGLRenderer({antialias: true, alpha:true});
 				renderer.setSize(window.innerWidth, window.innerHeight);
+				renderer.setPixelRatio(window.devicePixelRatio);
+				renderer.outputEncoding = THREE.sRGBEncoding;
+
 				$('.wrap').append(renderer.domElement);
 				
+				renderer.shadowMap.enabled = true;
 
-				const loader = new THREE.FontLoader();
+				//LIGHT
+													//	color, intensity,width,height
+				const rectLight = new THREE.RectAreaLight( 0xffffff, glow, 200, 300);
+				scene.add(rectLight);
+				rectLight.position.set(5,23,5);
+				rectLight.lookAt(0,0,120);
 
-				loader.load('/js/three.js-dev/examples/fonts/helvetiker_regular.typeface.json', function(font){	
-					const geometry = new THREE.TextGeometry('BRAVO 6, Going Dark..',{
+				//LIGHT2
+				const pointLight = new THREE.PointLight( 0xff7b00, 0.5, 80 );
+				scene.add(pointLight);
+				pointLight.position.set(0,5,-50);
+				pointLight.castShadow = true;
+
+				let text = 'BRAVO-6,Going-Dark..'
+				let textMesh;
+
+				const loader = new FontLoader();
+
+				loader.load('../fonts/NanumGothic_Regular.json', function(font){	
+					const tgeometry = new TextGeometry(text,{
 
 						font : font,
-						size : 64,
-						height: 5,
-						curveSegments: 12,
+						size : 24,
+						height: 3,
+						curveSegments: 120,
 						bevelEnabled: true,
-						bevelThickness: 10,
-						bevelSize: 8,
-						bevelOffset: 0,
-						bevelSegments: 5
+						bevelThickness: 1,
+						bevelSize: 1,
+						bevelOffset: 1,
+						bevelSegments: 1
 					});
-					
+				//create textmesh object
+				textMesh = new THREE.Mesh(tgeometry,[
+					new THREE.MeshPhongMaterial({emissive : 0x00ff00, emissiveIntensity: glow}),
+					new THREE.MeshPhongMaterial({color: 0xffffff})
+				]);
+				scene.add(textMesh);
+				textMesh.position.set( -180, -10, 0 );
+
+				textMesh.castShadow = true;
+				textMesh.receiveShadow = true;
+
 				});
+
 				
-				const material = new THREE.MeshBasicMaterial({
-					color: 0xff7b00
-				});
+				window.addEventListener('resize', onWindowResize);
 
-				const fonts = new THREE.Mesh(geometry, material);
+				animate();
 
-				scene.add(fonts);
+				function animate(){
+					requestAnimationFrame(animate);
+					glow = Math.random() - 0.2;
+					textMesh.material[0].emissiveIntensity = glow;
+					rectLight.intensity = glow;
 
+					renderer.render( scene, camera);
+				}
+
+				function onWindowResize(){
+					camera.aspect = window.innerWidth / window.innerHeight;
+					camera.updateProjectionMatrix();
+					renderer.setSize(window.innerWidth, window.innerHeight);
+				}
+				
 			</script>
 
 		</div>
