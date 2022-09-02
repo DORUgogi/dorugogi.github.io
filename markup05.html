@@ -94,7 +94,8 @@
 
 
 			<script type="module">
-				import * as THREE from "../js/modules/three.module.js"
+				import * as THREE from "../js/modules/three.module.js";
+				import { OrbitControls } from "../js/modules/OrbitControls.js";
 				import { FontLoader } from "../js/modules/FontLoader.js";
 				import { TextGeometry } from "../js/modules/TextGeometry.js";
 
@@ -104,9 +105,9 @@
 				const scene = new THREE.Scene();
 
 				//CAMERA
-				const camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, .1 ,1000);
+				const camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 1 ,1000);
 				
-				camera.position.set(0, 0, 120);
+				camera.position.set(50, 120, 100);
 				camera.lookAt(0,0,0);
 
 				//RENDERER
@@ -127,10 +128,23 @@
 				rectLight.lookAt(0,0,120);
 
 				//LIGHT2
-				const pointLight = new THREE.PointLight( 0xff7b00, 0.5, 80 );
+				const pointLight = new THREE.PointLight( 0xaa7b00, 1, 100 );
 				scene.add(pointLight);
-				pointLight.position.set(0,5,-50);
+				pointLight.position.set(0,100,-10);
 				pointLight.castShadow = true;
+
+				//GROUND
+				const ground = new THREE.Mesh(
+					new THREE.PlaneGeometry(500,500),
+					new THREE.MeshStandardMaterial({color: 0x000000})	
+				);
+				scene.add(ground);
+				ground.rotateX(-Math.PI/2);
+				ground.receiveShadow = true;
+
+				//ORBIT CONTROLS
+				const controls = new OrbitControls(camera, renderer.domElement);
+
 
 				let text = 'BRAVO-6,Going-Dark..'
 				let textMesh;
@@ -156,7 +170,7 @@
 					new THREE.MeshPhongMaterial({color: 0xffffff})
 				]);
 				scene.add(textMesh);
-				textMesh.position.set( -180, -10, 0 );
+				textMesh.position.set( -210, 10, 0 );
 
 				textMesh.castShadow = true;
 				textMesh.receiveShadow = true;

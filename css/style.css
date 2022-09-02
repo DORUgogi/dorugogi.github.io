@@ -184,6 +184,7 @@ h1{display: inline-block;width:100%;font-size:4rem;text-align: center;margin: 0 
     100%{transform: translateY(-5rem);}
 }
 
-.threeD{background: #000 linear-gradient(180deg, #397afa 10%, #ff7b00 39%, #ff7b00 40%, #000 49%);}
-.threeD h1{color: #fff}
+.threeD{background: #000;}
+/* .threeD{background: #000 linear-gradient(180deg, #397afa 10%, #ff7b00 39%, #ff7b00 40%, #000 49%);} */
+.threeD h1{position:relative;color: #fff;z-index: 1;}
 .wrap canvas{position: absolute;top:0;left: 0;}
